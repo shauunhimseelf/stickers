@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react'
+import React from 'react'
 import Sticker from './Sticker.js';
 
 class StickerArea extends React.Component{

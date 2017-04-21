@@ -1,6 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import StickerArea from './StickerArea.js';
-import update from 'immutability-helper';
+
+import Rebase from 're-base';
+
+var base = Rebase.createClass({
+    apiKey: "AIzaSyCB6EbG6wW2D6qXouuVjcinuv3O4d30Wpk",
+    authDomain: "react-stickers.firebaseapp.com",
+    databaseURL: "https://react-stickers.firebaseio.com"
+});
 
 class StickerContainer extends React.Component {
 
@@ -10,6 +17,20 @@ class StickerContainer extends React.Component {
       stickers: []
     };
     this.addSticker = this.addSticker.bind(this);
+    this.deleteAllStickers = this.deleteAllStickers.bind(this);
+
+  }
+
+  init(){
+      this.ref = base.syncState(`/react-stickers`, {
+      context: this,
+      asArray: true,
+      state: 'stickers'
+    });
+  }
+
+  componentWillMount() {
+    this.init();
   }
 
   addSticker() {
@@ -31,6 +52,12 @@ class StickerContainer extends React.Component {
 
   }
 
+  deleteAllStickers() {
+    this.setState({
+      stickers: []
+    });
+  }
+
   randomVal(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
   }
@@ -40,6 +67,8 @@ class StickerContainer extends React.Component {
       <div>
         <StickerArea stickers={this.state.stickers} />
         <button className="addStickerButton" onClick={this.addSticker}>Add sticker</button>
+        <button className="deleteAllStickersButton" onClick={this.deleteAllStickers}>Delete all stickers</button>
+
       </div>
     );
   }

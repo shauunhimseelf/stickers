@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import Draggable from 'react-draggable';
 
 const Sticker = (props) => {
@@ -9,8 +9,6 @@ const Sticker = (props) => {
     top: props.y,
     zIndex: props.zIndex
   }
-  
-  console.log(style);
 
   return (
     <Draggable>
