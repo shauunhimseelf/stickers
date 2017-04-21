@@ -1,0 +1,15 @@
+.stickerArea {
+  border: 1px solid grey;
+  margin: 20px auto;
+  width: 600px;
+  height: 600px;
+  display: block;
+  position: relative;
+}
+
+.sticker img {
+  position: absolute;
+  width: 100px;
+  height: auto;
+  /*pointer-events: none;*/
+}
