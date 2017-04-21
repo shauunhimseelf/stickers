@@ -5,11 +5,11 @@
   height: 600px;
   display: block;
   position: relative;
+  overflow: hidden;
 }
 
 .sticker img {
   position: absolute;
   width: 100px;
   height: auto;
-  /*pointer-events: none;*/
 }

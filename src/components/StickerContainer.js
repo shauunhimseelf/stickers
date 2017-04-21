@@ -16,11 +16,11 @@ class StickerContainer extends React.Component {
     let newStickerArray = [...this.state.stickers];
     const sticker = {
       name: "sticker",
-      scale: "1",
-      rotation: "0",
-      x: 0,
-      y: 0,
-      zIndex: 1,
+      scale: this.randomVal(0.9, 1.1),
+      rotation: this.randomVal(-30, 30),
+      x: this.randomVal(0, 600),
+      y: this.randomVal(0, 600),
+      zIndex: this.state.stickers.length + 1,
       stickerSrc: "http://i.imgur.com/A8eQsll.jpg"
     }
     newStickerArray.push(sticker);
@@ -29,6 +29,10 @@ class StickerContainer extends React.Component {
       stickers: newStickerArray
     });
 
+  }
+
+  randomVal(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
   }
 
   render() {

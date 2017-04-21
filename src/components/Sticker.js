@@ -4,12 +4,13 @@ import Draggable from 'react-draggable';
 const Sticker = (props) => {
 
   const style = {
-    scale: props.scale,
-    rotation: props.rotation,
+    transform: `scale(${props.scale}) rotate(${props.rotation}deg)`,
     left: props.x,
     top: props.y,
     zIndex: props.zIndex
   }
+  
+  console.log(style);
 
   return (
     <Draggable>
